@@ -127,7 +127,7 @@ const TourDetails = () => {
                     <p>{desc}</p>
                   </div>
 
-                  {/* ========== tour reviews section =========== */}
+                  {/* tour reviews section */}
                   <div className="tour__reviews mt-4">
                     <h4>Reviews ({reviews?.length} reviews)</h4>
 
@@ -193,7 +193,7 @@ const TourDetails = () => {
                       ))}
                     </ListGroup>
                   </div>
-                  {/* ========== tour reviews section end =========== */}
+                  {/* tour reviews section end */}
                 </div>
               </Col>
 
