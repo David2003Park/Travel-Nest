@@ -2,13 +2,13 @@
     "name": "Travel-Nest",
     "version": "1.0.0",
     "description": "",
-    "main": "server/server.js",
+    "main": "index/index.js",
     "scripts": {
-      "start": "node server --ignore client",
-      "develop": "concurrently \"cd frontend && npm run start\" \"cd backend && npm run dev\"",
-      "install": "cd server && npm i && cd ../client && npm i",
-      "seed": "cd server && npm run seed",
-      "build": "cd client && npm run build"
+      "install": "cd backend && npm i && cd ../frontend && npm i",
+      "start": "cd backend && npm start",
+      "client": "cd frontend && npm start",
+      "server": "cd backend && nodemon server.js",
+      "dev": "concurrently \"npm run server\" \"npm run client\""
     },
     "keywords": [],
     "author": "",

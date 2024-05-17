@@ -29,10 +29,9 @@ const connect = async () => {
       useUnifiedTopology: true,
       useCreateIndex: true,
     });
-
     console.log("MongoDB database connected");
   } catch (err) {
-    console.log("MongoDB database connection failed");
+    console.error("MongoDB database connection failed:", err);
   }
 };
 
@@ -48,5 +47,5 @@ app.use("/api/v1/booking", bookingRoute);
 
 app.listen(port, () => {
   connect();
-  console.log("server listening on port", port);
+  console.log("Server listening on port", port);
 });
