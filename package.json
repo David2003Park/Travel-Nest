@@ -1,20 +1,21 @@
 {
-    "name": "Travel-Nest",
-    "version": "1.0.0",
-    "description": "",
-    "main": "index/index.js",
-    "scripts": {
-      "install": "cd backend && npm i && cd ../frontend && npm i",
-      "start": "cd backend && npm start",
-      "client": "cd frontend && npm start",
-      "server": "cd backend && nodemon server.js",
-      "dev": "concurrently \"npm run server\" \"npm run client\""
-    },
-    "keywords": [],
-    "author": "",
-    "license": "MIT",
-    "devDependencies": {
-      "concurrently": "^5.1.0"
-    }
+  "name": "Travel-Nest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index/index.js",
+  "scripts": {
+    "install": "cd backend && npm i && cd ../frontend && npm i",
+    "start": "cd backend && npm start",
+    "client": "cd frontend && npm start",
+    "server": "cd backend && nodemon index.js",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "build": "cd frontend && npm run build",
+    "render-build": "npm install && npm run build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ICS",
+  "devDependencies": {
+    "concurrently": "^5.1.0"
   }
-  
+}
