@@ -9,7 +9,7 @@
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "server": "cd backend && nodemon index.js",
     "build": "cd frontend && npm run build",
-    "render-build": "npm install && npm run build"
+    "render-build": "cd backend && npm install && cd ../frontend && npm install && npm run build"
   },
   "keywords": [],
   "author": "",
@@ -19,5 +19,8 @@
   },
   "dependencies": {
     "mongodb": "^6.6.2"
+  },
+  "engines": {
+    "node": ">=14.x"
   }
 }
