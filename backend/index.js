@@ -18,6 +18,7 @@ const corsOptions = {
 };
 
 // Log environment variable
+mongoose.connect(process.env.MONGO_URI || 'mongodb+srv://davidpark:merntourbooking@cluster0.ycdvuuw.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0');
 console.log('MONGO_URI:', process.env.MONGO_URI);
 
 // database connection
