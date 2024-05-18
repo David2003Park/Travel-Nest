@@ -5,7 +5,7 @@
   "main": "index/index.js",
   "scripts": {
     "start": "cd backend && npm start",
-    "install": "cd backend && npm i && cd ../frontend && npm i --production=false",
+    "install": "cd backend && npm i && cd ../frontend && npm i--production=false",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "server": "cd backend && nodemon index.js",
     "build": "cd frontend && npm install && npm run build",
