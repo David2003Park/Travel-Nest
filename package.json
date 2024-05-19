@@ -1,0 +1,27 @@
+{
+    "name": "Travel-Nest",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index/index.js",
+    "scripts": {
+      "start": "cd backend && npm start",
+      "install": "cd backend && npm i && cd ../frontend && npm install --production=false",
+      "dev": "concurrently \"npm run server\" \"npm run client\"",
+      "server": "cd backend && nodemon index.js",
+      "build": "cd frontend && npm install && npm run build",
+      "heroku-postbuild": "npm run build"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+      "concurrently": "^8.2.0"
+    },
+    "dependencies": {
+      "mongodb": "^6.6.2"
+    },
+    "engines": {
+      "node": ">=14.x"
+    }
+  }
+  
