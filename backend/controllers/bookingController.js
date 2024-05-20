@@ -1,7 +1,8 @@
-import Booking from "../models/Booking.js";
+const Booking = require("../models/Booking.js");
 
 // create new booking
-export const createBooking = async (req, res) => {
+module.exports = {
+createBooking: async (req, res) => {
   const newBooking = new Booking(req.body);
   try {
     const savedBooking = await newBooking.save();
@@ -14,10 +15,10 @@ export const createBooking = async (req, res) => {
   } catch (err) {
     res.status(500).json({ success: true, message: "internal server error" });
   }
-};
+},
 
 // get single booking
-export const getBooking = async (req, res) => {
+getBooking: async (req, res) => {
   const id = req.params.id;
 
   try {
@@ -31,10 +32,10 @@ export const getBooking = async (req, res) => {
   } catch (err) {
     res.status(404).json({ success: true, message: "not found" });
   }
-};
+},
 
 // get all booking
-export const getAllBooking = async (req, res) => {
+getAllBooking: async (req, res) => {
   try {
     const books = await Booking.find();
 
@@ -46,4 +47,5 @@ export const getAllBooking = async (req, res) => {
   } catch (err) {
     res.status(500).json({ success: true, message: "internal server error" });
   }
-};
+},
+}

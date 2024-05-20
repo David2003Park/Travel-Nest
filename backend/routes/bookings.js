@@ -1,11 +1,11 @@
-import express from "express";
-import {
+const express = require("express");
+const {
   createBooking,
   getAllBooking,
   getBooking,
-} from "../controllers/bookingController.js";
+} = require("../controllers/bookingController.js");
 
-import { adminAuth, userAuth } from "../utils/verifyToken.js";
+const { adminAuth, userAuth } = require("../utils/verifyToken.js");
 
 const router = express.Router();
 
@@ -13,4 +13,4 @@ router.post("/", userAuth, createBooking);
 router.get("/:id", userAuth, getBooking);
 router.get("/", adminAuth, getAllBooking);
 
-export default router;
+module.exports = router;

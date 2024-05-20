@@ -1,7 +1,8 @@
-import User from "../models/User.js";
+const User = require("../models/User.js");
 
 // create new User
-export const createUser = async (req, res) => {
+module.exports = {
+createUser: async (req, res) => {
   const newUser = new User(req.body);
 
   try {
@@ -17,10 +18,10 @@ export const createUser = async (req, res) => {
       .status(500)
       .json({ success: false, message: "Failed to create. Try again" });
   }
-};
+},
 
 // update User
-export const updateUser = async (req, res) => {
+updateUser: async (req, res) => {
   const id = req.params.id;
 
   try {
@@ -43,10 +44,10 @@ export const updateUser = async (req, res) => {
       message: "failed to update",
     });
   }
-};
+},
 
 // delete User
-export const deleteUser = async (req, res) => {
+deleteUser: async (req, res) => {
   const id = req.params.id;
 
   try {
@@ -62,10 +63,10 @@ export const deleteUser = async (req, res) => {
       message: "failed to delete",
     });
   }
-};
+},
 
 // getSingle User
-export const getSingleUser = async (req, res) => {
+getSingleUser: async (req, res) => {
   const id = req.params.id;
 
   try {
@@ -82,10 +83,10 @@ export const getSingleUser = async (req, res) => {
       message: "not found",
     });
   }
-};
+},
 
 // getAll User
-export const getAllUser = async (req, res) => {
+ getAllUser: async (req, res) => {
   try {
     const users = await User.find({});
 
@@ -100,4 +101,5 @@ export const getAllUser = async (req, res) => {
       message: "not found",
     });
   }
-};
+},
+}

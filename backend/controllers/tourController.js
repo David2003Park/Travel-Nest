@@ -1,7 +1,7 @@
-import Tour from "../models/Tour.js";
+const Tour = require("../models/Tour.js");
 
 // create new tour
-export const createTour = async (req, res) => {
+const createTour = async (req, res) => {
   const newTour = new Tour(req.body);
 
   try {
@@ -20,7 +20,7 @@ export const createTour = async (req, res) => {
 };
 
 // update tour
-export const updateTour = async (req, res) => {
+const updateTour = async (req, res) => {
   const id = req.params.id;
 
   try {
@@ -46,7 +46,7 @@ export const updateTour = async (req, res) => {
 };
 
 // delete tour
-export const deleteTour = async (req, res) => {
+const deleteTour = async (req, res) => {
   const id = req.params.id;
 
   try {
@@ -65,7 +65,7 @@ export const deleteTour = async (req, res) => {
 };
 
 // getSingle tour
-export const getSingleTour = async (req, res) => {
+const getSingleTour = async (req, res) => {
   const id = req.params.id;
 
   try {
@@ -85,7 +85,7 @@ export const getSingleTour = async (req, res) => {
 };
 
 // getAll tour
-export const getAllTour = async (req, res) => {
+const getAllTour = async (req, res) => {
   // for pagination
   const page = parseInt(req.query.page);
 
@@ -110,7 +110,7 @@ export const getAllTour = async (req, res) => {
 };
 
 // get tour by search
-export const getTourBySearch = async (req, res) => {
+const getTourBySearch = async (req, res) => {
   // here 'i' means case sensitive
   const city = new RegExp(req.query.city, "i");
 
@@ -137,7 +137,7 @@ export const getTourBySearch = async (req, res) => {
 };
 
 // get featured tour
-export const getFeaturedTour = async (req, res) => {
+const getFeaturedTour = async (req, res) => {
   try {
     const tours = await Tour.find({ featured: true })
       .populate("reviews")
@@ -157,7 +157,7 @@ export const getFeaturedTour = async (req, res) => {
 };
 
 // get tour counts
-export const getTourCount = async (req, res) => {
+const getTourCount = async (req, res) => {
   try {
     const tourCount = await Tour.estimatedDocumentCount();
 
@@ -166,3 +166,5 @@ export const getTourCount = async (req, res) => {
     res.status(500).json({ success: false, message: "failed to fetch" });
   }
 };
+
+module.exports = {createTour, updateTour, deleteTour, getSingleTour, getAllTour, getTourBySearch, getFeaturedTour, getTourCount}

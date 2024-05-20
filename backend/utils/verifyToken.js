@@ -1,5 +1,5 @@
-import jwt from "jsonwebtoken";
-import User from "../models/User.js";
+const jwt = require("jsonwebtoken");
+const User = require("../models/User.js");
 
 const authenticate = role => async (req, res, next) => {
   // Get token from header
@@ -31,8 +31,10 @@ const authenticate = role => async (req, res, next) => {
   }
 };
 
+module.exports = {
 // Middleware to authenticate admin access
-export const adminAuth = authenticate("admin");
+adminAuth: authenticate("admin"),
 
 // Middleware to authenticate patient access
-export const userAuth = authenticate("user");
+userAuth: authenticate("user"),
+}

@@ -1,7 +1,8 @@
-import Tour from "../models/Tour.js";
-import Review from "../models/Review.js";
+const Tour = require("../models/Tour.js");
+const Review = require("../models/Review.js");
 
-export const createReview = async (req, res) => {
+module.exports = {
+createReview:async (req, res) => {
   const tourId = req.params.tourId;
   const newReview = new Review({ ...req.body });
 
@@ -19,4 +20,5 @@ export const createReview = async (req, res) => {
   } catch (err) {
     res.status(500).json({ success: false, message: "failed to submit" });
   }
-};
+},
+}
